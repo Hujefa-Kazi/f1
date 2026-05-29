@@ -15,7 +15,7 @@ variable "key_name" {
     default = "terraform-key"
 }
 variable "my-security" {
-    default = "[sg-097f80ca2a87eb65f]"
+    default = "sg-097f80ca2a87eb65f"
 }
 variable "instance-name" {
     default = "myec2"
