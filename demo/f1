@@ -1,6 +1,10 @@
 
 this data is from master
 this data is from feature
+<<<<<<< HEAD
 =======
 Hello this is new data from git
 
+=======
+this is for testing
+>>>>>>> feature
