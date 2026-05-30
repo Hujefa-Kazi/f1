@@ -37,7 +37,7 @@ resource "aws_route_table_association" "myroute-sub" {
     subnet_id      = aws_subnet.pub-sub.id 
     route_table_id = aws_route_table.myroute.id
 }
-resource "aws_instance" "instance-name1" {
+resource "aws_instance" "myinstance" {
   ami                    = var.ami
   instance_type          = var.instance_type
   key_name               = var.key_name
