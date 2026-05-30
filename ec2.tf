@@ -14,7 +14,7 @@ resource "aws_instance" "myec2" {
   key_name               = var.key_name
   vpc_security_group_ids = [var.my-security]
   tags = {
-    Name = var.instance_name
+    Name = var.instance-name
     name = "huzef"
     Env  = "dev"
   }
