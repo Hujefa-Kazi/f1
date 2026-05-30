@@ -15,10 +15,16 @@ resource "aws_instance" "myec2" {
   vpc_security_group_ids = [var.my-security]
   tags = {
     Name = var.instance-name
-    Env  = "dev"
+    env  = "dev"
   }
 }
-resource "aws_instance" "myec2" {
+data "aws_security_groups" "my-security" {
+  filter {
+    name = "vpc-id"
+    values = [var.vpc_id]
+  }
+}
+resource "aws_instance" "myinstance" {
   ami                    = var.ami
   instance_type          = local.instance_type
   key_name               = var.key_name
