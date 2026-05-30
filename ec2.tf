@@ -24,7 +24,7 @@ data "aws_security_groups" "my-security" {
     values = [var.vpc_id]
   }
 }
-resource "aws_instance" "myinstance" {
+resource "aws_instance" "myinstance-ec2" {
   ami                    = var.ami
   instance_type          = local.instance_type
   key_name               = var.key_name
