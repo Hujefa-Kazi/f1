@@ -18,14 +18,6 @@ resource "aws_instance" "myec2" {
     Env  = "dev"
   }
 }
-data "aws_security_group" "my-security" {
-  filter {
-    group_name = ""
-  }
-  filter {
-    vpc_id =
-  }
-}
 resource "aws_instance" "myec2" {
   ami                    = var.ami
   instance_type          = local.instance_type
