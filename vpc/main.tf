@@ -1,3 +1,8 @@
+terraform {
+  backend "local" {
+    path = "terraform.tfstate"
+  }
+}
 resource "aws-vpc" "myvpc" {
     cidr_block = var.vpc-cidr
     tags = {
