@@ -1,10 +1,5 @@
 terraform {
-  backend "s3" {
-    bucket = "batch-786"
-    region = "us-east-1"
-    key = "tfstate"
+  backend "local" {
+    path = "terraform.tfstate"
   }
-}
-provider "aws" {
-  region = var.region
 }
