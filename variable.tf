@@ -17,9 +17,9 @@ variable "key_name" {
 variable "my-security" {
     default = "sg-097f80ca2a87eb65f"
 }
-variable "instance-name1" {
+variable "instance-name" {
     default = "myec2"
 }
 variable "instance-name2" {
-    default = "myinstance"
+    default = "myec2-secondary"
 }

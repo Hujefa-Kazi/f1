@@ -23,5 +23,5 @@ variable "my-security" {
     default = "sg-097f80ca2a87eb65f"
 }
 variable "instance-name1" {
-    default = "myec2"
+    default = "myec2-instance"
 }
