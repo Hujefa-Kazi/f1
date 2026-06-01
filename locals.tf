@@ -1,5 +1,5 @@
 locals {
-    Name = myinstance
-    instance_type = t3.medium
+    Name          = "myinstance"
+    instance_type = "t3.medium"
 }
  
