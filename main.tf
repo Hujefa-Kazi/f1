@@ -1,5 +1,5 @@
 module "myvpc" {
-source = "./modules/vpc"
+source = "./vpc"
 region = var.region
 vpc-cidr = var.vpc-cidr
 pub-sub-cidr = var.pub-sub-cidr
