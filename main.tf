@@ -15,5 +15,5 @@ module "myinstance" {
     instance_type = var.instance_type
     key_name = var.key_name
     my-security = var.my-security
-    instance-name1 = var.instance-name
+    instance-name1 = var.instance-name1
 }
