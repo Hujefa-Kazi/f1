@@ -1,5 +1,5 @@
 - name: this is my first playbook
-  hosts: webservers
+  hosts: all
   tasks:
     - name: print animal name
       debug:
