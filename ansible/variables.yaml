@@ -1,6 +1,6 @@
 - name: this is variable learning
   hosts: all
-  var:
+  vars:
     animal: "tiger"
   tasks:
     - name: print animal 1
