@@ -1,5 +1,5 @@
 - name: this is variable learning
-  hosts: all
+  hosts: aws
   vars:
     animal: "tiger"
   tasks:
