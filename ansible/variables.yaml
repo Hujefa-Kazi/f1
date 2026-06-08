@@ -3,7 +3,8 @@
   vars:
     animal: "tiger"
     vars_files:
-     -./var.txt
+     -./myvars.yaml
+     
   tasks:
     - name: print animal 1
       debug:
