@@ -1,10 +1,7 @@
 - name: this playbook for apache2 installation
   hosts: all
   tasks:
-    - name: update
-      shell:
-        cmd: apt-get update
-        
+    
     - name: install httpd
       yum:
         name: httpd
