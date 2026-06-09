@@ -4,8 +4,8 @@
   #animal: "tiger"
   #vars_files:
   #- ./var.txt  
-  vars_prompt:
-  prompt: enter your animal name
+  #vars_prompt:
+  #prompt: enter your animal name
      
   tasks:
     - name: print animal 1
