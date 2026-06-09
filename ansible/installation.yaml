@@ -1,6 +1,9 @@
 - name: this playbook for apache2 installation
   hosts: all
   tasks:
+    - name: update
+      shell:
+        cmd: apt-get update
     - name: install apache2
       apt:
         name: apache2
