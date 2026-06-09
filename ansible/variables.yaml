@@ -1,11 +1,11 @@
 - name: this is variable learning
   hosts: all 
-  #vars:
-  #animal: "tiger"
-  #vars_files:
-  #- ./var.txt  
-  #vars_prompt:
-   ## prompt: enter your animal name
+  vars:
+  animal: "tiger"
+  vars_files:
+  - ./var.txt  
+  vars_prompt:
+  prompt: enter your animal name
      
   tasks:
     - name: print animal 1
@@ -19,3 +19,11 @@
         msg: "{{animal}}"
       vars: 
         animal: "Lion"
+
+    - name: get hostname
+      shell: hostname
+      register: machineName
+
+    - name: print hostname
+      debug:
+        msg: "{{machineName.stdout}}"
