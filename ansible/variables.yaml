@@ -8,17 +8,17 @@
   #prompt: enter your animal name
      
   tasks:
-    - name: print animal 1
-      debug:
-        msg: "{{animal}}"
-    - name: print animal 2
-      debug:
-        msg: "{{animal}}"
-    - name: print aniaml 3
-      debug:
-        msg: "{{animal}}"
-      vars: 
-        animal: "Lion"
+    #- name: print animal 1
+    #  debug:
+    #   msg: "{{animal}}"
+    #- name: print animal 2
+    #  debug:
+    #    msg: "{{animal}}"
+    #- name: print aniaml 3
+    #  debug:
+    #    msg: "{{animal}}"
+    #  vars: 
+    #    animal: "Lion"
 
     - name: get hostname
       shell: hostname
@@ -26,4 +26,4 @@
 
     - name: print hostname
       debug:
-        msg: "{{machineName.stdout}}"
+        msg: "{{machineName}}"
