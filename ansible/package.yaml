@@ -5,10 +5,22 @@
       package: 
         name: httpd
         state: latest
-        ignore errors: true 
+      when: ansible_distribution == "RedHat"
     - name: install apache2
       package:
         name: apache2
         state: present 
+      when: ansible_distribution == "debian"  
 
+    - name: start service
+      systemd: 
+        name:
+        state: started
+        enabled: true
+      when: ansible_distribution == "debian"
+    - name: start httpd
+      service: 
+        name: httpd
+        state: started
+      when: ansible_distribution == "RedHat"
 
