@@ -5,22 +5,21 @@
       package: 
         name: httpd
         state: latest
-      when: ansible_distribution == "amazon"
+      when: ansible_distribution == "debian"
     - name: install apache2
       package:
         name: apache2
         state: present 
-      when: ansible_distribution == "amazon"  
+      when: ansible_distribution == "redhat"  
 
     - name: start service
       systemd: 
         name:
         state: started
         enabled: true
-      when: ansible_distribution == "amazon"
+      when: ansible_distribution == "redhat"
     - name: start httpd
       service: 
         name: httpd
         state: started
-      when: ansible_distribution == "amazon"
-
+      when: ansible_distribution == "debian"
