@@ -1,5 +1,6 @@
 - name: update webserver
   hosts: all 
+  become: true
   tasks:
     - name: change web package
       copy:
