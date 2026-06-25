@@ -1,6 +1,4 @@
 services:
-tomcat-server:
-  build: .
   httpd-server:
     image: hujefakazi/batch2k26:httpd-v
     environment:
