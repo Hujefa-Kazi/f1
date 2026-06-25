@@ -1,0 +1,16 @@
+services:
+tomcat-server:
+  build: .
+  httpd-server:
+    image: hujefakazi/batch2k26:httpd-v
+    environment:
+      - name=hujefa
+      - department=devops
+    ports:
+      - 80:80
+  apache-server:
+     image: hujefakazi/batch2k26:apache2
+     ports: 
+       - 81:80
+     volumes:
+       - /opt/data
