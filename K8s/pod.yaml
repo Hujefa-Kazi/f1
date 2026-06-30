@@ -1,0 +1,16 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: myapps
+  labels:
+    app: my1stapps
+spec: 
+  containers:
+  - name: myapps
+    image: hujefakazi/batch2k26:httpd-v
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
