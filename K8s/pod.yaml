@@ -22,6 +22,6 @@ metadata:
 spec:
   selector:
     app: my1stapps
-    ports:
+  ports:
     - port: 80
       targetPort: 80      
