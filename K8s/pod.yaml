@@ -14,3 +14,14 @@ spec:
         cpu: "500m"
     ports:
       - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapps
+spec:
+  selector:
+    app: my1stapps
+    ports:
+    - port: 80
+      targetPort: 80      
