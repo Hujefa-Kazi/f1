@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: myrpcontroller
+spec:
+  replicas: 5  
+  selector:
+    app: rppod
+  template:
+    metadata:
+      name: myrppod
+      labels:
+        app: rppod
+    spec: 
+      containers:
+        - name: rppod
+          image: httpd
+          ports:
+            - containerPort: 80 
