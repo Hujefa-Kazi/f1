@@ -5,7 +5,7 @@ metadata:
 spec: 
   containers:
   - name: my-container
-    image: httpd
+    image: nginx
     ports:
       - containerPort: 80
     volumeMounts:
