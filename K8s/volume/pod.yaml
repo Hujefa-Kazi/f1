@@ -6,6 +6,8 @@ spec:
   containers:
   - name: my-container
     image: httpd
+    ports:
+      - containerPort: 80
     volumeMounts:
     - name: hostpath-storage
       mountPath: /usr/local/apache2/htdocs
@@ -14,3 +16,4 @@ spec:
   - name: hostpath-storage
     persistentVolumeClaim:
       claimName: my-hostpath-pvc
+   
