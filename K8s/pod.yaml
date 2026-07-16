@@ -5,12 +5,12 @@ metadata:
 spec: 
   containers:
   - name: my-container
-    image: httpd
+    image: nginx
     volumeMounts:
     - name: hostpath-storage
       mountPath: /usr/local/apache2/htdocs
 
   volumes:
   - name: hostpath-storage
-    PersistentVolumeClaim:
+    persistentVolumeClaim:
       claimName: my-hostpath-pvc
