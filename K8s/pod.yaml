@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: database
+  labels:
+    app: my1stapp
+spec:
+  containers:
+  - name: myapp
+    image: mariadb
+    envFrom:
+      - configMapRef:
+          name: myvariables
+          
+    ports:
+      - containerPort: 80
