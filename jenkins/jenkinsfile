@@ -12,7 +12,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                dir('my-app') {
+                dir('/home/ubuntu/workspace/my-app') {
                     sh 'mvn clean package'
                 }
                 echo "build successful"
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                dir('my-app') {
+                dir('/home/ubuntu/workspace/my-app') {
                     withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
                         sh 'mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
                     }
