@@ -1,33 +1,37 @@
 pipeline {
     agent { label 'node1' }
+    environment {
+        PATH = "/opt/apache-maven-3.9.16/bin:${env.PATH}"
+    }
     stages {
         stage('pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/Hujefa-Kazi/f1.git'
-            echo "pull successful"
+                echo "pull successful"
             }
         }
         stage('build') {
             steps {
                 dir('my-app') {
-                sh '/opt/apache-maven-3.9.16/bin/mvn clean package'
+                    sh 'mvn clean package'
+                }
                 echo "build successful"
             }
         }
-          stage('test') {
+        stage('test') {
             steps {
                 dir('my-app') {
-                withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-                  sh  '/opt/apache-maven-3.9.16/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
+                    withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
+                        sh 'mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
+                    }
                 }
-                
-                echo "testing successful" 
+                echo "testing successful"
             }
         }
         stage('Deploy') {
             steps {
                 echo "deploy successful"
-                sh 'hostname'  
+                sh 'hostname'
             }
         }
     }
