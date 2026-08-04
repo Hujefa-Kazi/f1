@@ -12,17 +12,15 @@ pipeline {
         }
         stage('build') {
             steps {
-                dir('/home/ubuntu/workspace/my-app') {
-                    sh 'mvn clean package'
+                    sh '/home/ubuntu/my-app/mvn clean package'
                 }
                 echo "build successful"
             }
         }
         stage('test') {
             steps {
-                dir('/home/ubuntu/workspace/my-app') {
                     withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-                        sh 'mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
+                        sh '/home/ubuntu/my-app/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
                     }
                 }
                 echo "testing successful"
