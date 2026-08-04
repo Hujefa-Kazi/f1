@@ -22,7 +22,7 @@ pipeline {
             steps {
                 dir('my-app') {
                     withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
-                        sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject1'
+                        sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
                     }
                 }
                 echo "testing successful"
