@@ -30,7 +30,9 @@ pipeline {
         }
         stage('waitforgate') {
             steps {
-                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                timeout(time: 1, unit: 'MINUTES'){
+                waitForQualityGate abortPipeline: true, credentialsId: 'sonar-token'
+                }
                 echo "gate check successful"
             }
         }
