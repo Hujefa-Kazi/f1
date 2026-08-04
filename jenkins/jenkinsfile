@@ -16,7 +16,7 @@ pipeline {
         }
           stage('test') {
             steps {
-                 dir('my-app') {
+                dir('my-app') {
                 withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
                   sh  '/opt/apache-maven-3.9.16/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
                 }
