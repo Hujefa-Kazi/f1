@@ -1,0 +1,11 @@
+numbers = 123456789
+string = "huzefa786" 'huzefa'
+list ["huzefa786", 'huzefa']
+
+teachers:
+ -aws
+ -linux
+
+address:
+  city: satara
+    location: jakatwadi

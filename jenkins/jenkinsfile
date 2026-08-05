@@ -1,0 +1,47 @@
+pipeline {
+    agent { label 'node1' }
+    environment {
+        PATH = "/opt/apache-maven-3.9.16/bin:${env.PATH}"
+    }
+    stages {
+        stage('pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Hujefa-Kazi/f1.git'
+                echo "pull successful"
+            }
+        }
+        stage('build') {
+            steps {
+                dir('my-app') {
+                    sh 'mvn clean package'
+                }
+                echo "build successful"
+            }
+        }
+        stage('test') {
+            steps {
+                dir('my-app') {
+                    withSonarQubeEnv(installationName: 'sonar-server', credentialsId: 'sonar-token') {
+                        sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=myproject1 -Dsonar.projectName=myproject'
+                    }
+                }
+                echo "testing successful"
+            }
+        }
+        stage('waitforgate') {
+            steps {
+                timeout(time: 1, unit: 'MINUTES'){
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                }
+                echo "gate check successful"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-access', path: '', url: 'http://50.19.174.63:8080/')], contextPath: '/', war: '**/*.war'
+                echo "deploy successful"
+                sh 'hostname'
+            }
+        }
+    }
+}
